@@ -36,6 +36,7 @@ jobs:
           prop() {
             grep "${1}" gradle.properties | cut -d'=' -f2 | sed 's/\r//'
           }
+
           
           jarName="Lumina-leavesclip-$(prop version)-mojmap.jar"
           mv build/libs/Lumina-leavesclip-"$(prop version)"-mojmap.jar "$jarName"
