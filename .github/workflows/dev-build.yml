@@ -23,8 +23,10 @@ jobs:
         run: |
           git config --global user.email "ci@leavesmc.org"
           git config --global user.name "LeavesMC CI"
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Fix gradlew line endings and permissions
+        run: |
+          sed -i 's/\r$//' gradlew
+          chmod +x gradlew
       - name: Apply Patches
         run: ./gradlew applyAllPatches
       - name: Create Leavesclip Jar
@@ -45,4 +47,5 @@ jobs:
           name: ${{ env.jar }}
 
           path: ${{ env.jar }}
+
 
