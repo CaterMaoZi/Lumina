@@ -34,10 +34,12 @@ jobs:
           }
           
           jarName="Lumina-leavesclip-$(prop version)-mojmap.jar"
+          
           mv build/libs/Lumina-leavesclip-"$(prop version)"-mojmap.jar "$jarName"
           echo "jar=$jarName" >> "$GITHUB_ENV"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.jar }}
+
           path: ${{ env.jar }}
